@@ -32,11 +32,12 @@ def get_api_key():
 
 def get_weather_results(zip_code, api_key):
     api_url = "http://api.openweathermap.org/" \
-              "data/2.5/weather?zip={}&units=imperial&appid={}".format(zip_code, api_key)
+              "data/2.5/weather?zip={}&units=metric&appid={}".format(zip_code, api_key)
     r = requests.get(api_url)
     return r.json()
 
 
 if __name__ == '__main__':
-    app.run()
+    # updated app.run with port number and host
+    app.run(debug=True, host='0.0.0.0')
 
